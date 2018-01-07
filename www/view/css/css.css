@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    background-color: grey;
+}
+nav {
+    text-align: center;
+}
+.reg {
+    text-align: center;
+    text-decoration-color: black;
+    padding: 0;
+    border: 0;
+}
