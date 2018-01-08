@@ -4,18 +4,12 @@ require __DIR__ . '/../functions/sql.php';
 function get_AllNews()
 {
     $sql = 'SELECT * FROM news ORDER BY Date DESC';
-    $res = sendQuery($sql);
-    foreach($res as $value) {
-        $all_News[] = [
-                        'id' => $value['id'],
-                        'Link' => $value['Link'],
-                        'Date' => $value['Date'],
-                        'title' => $value['title'],
-                        'text'  => $value['text'],
-                        ];
-        }
-    return $all_News;
+    return sendQuery($sql);
+
 }       // Возвращает массив всех записей из таблица News (доделать)
+
+
+
 
 
 function get_UserInfo($login)

@@ -1,6 +1,5 @@
 <?php
 require_once 'sql.php';
-
 function isUser()
 {
     if (isset($_COOKIE['login']) && isset($_COOKIE['token'])) {
@@ -8,6 +7,7 @@ function isUser()
         if ($res['user'] == $_COOKIE['login'] && $res['token'] == $_COOKIE['token']) {
             setcookie('login', $_COOKIE['login'], time()+86400);
             setcookie('token', $_COOKIE['token'], time()+86400);
+            $_SESSION['notifications'][0] = 'Привет, ' . $_COOKIE['login'];
             return true;
         } else {
             return false;
@@ -30,7 +30,6 @@ function registration()     // Должна записывать в базу use
             $md5psw = md5($_POST['password']);
             $sql = "INSERT INTO users (user, password, email) VALUES ('$_POST[login]', '$md5psw', '$_POST[email]')";
             sendQuery($sql);
-            $_SESSION['notifications'] = 'Регистрация прошла успешно';
             return true;
         }
     } else {
@@ -39,3 +38,18 @@ function registration()     // Должна записывать в базу use
 
 }
 
+function logOut()
+{
+    if (isset($_COOKIE['login']) && isset($_COOKIE['token'])) {
+        $res = get_UserInfo($_COOKIE['login']);
+        if ($res['user'] == $_COOKIE['login'] && $res['token'] == $_COOKIE['token']) {
+
+            setcookie('login', '', time() - 36000);
+            setcookie('token', '', time() - 36000);
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
