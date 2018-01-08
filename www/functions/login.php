@@ -5,21 +5,19 @@ function sign_in()
     if(isset($_POST['login']) && isset($_POST['password'])) {
         $login = $_POST['login'];
         $md5psw = md5($_POST['password']);
-        $cookie = get_Token();
         $res = get_UserInfo($login);
-        if($res['login'] == $login && $res['password'] == $md5psw) {
+        if($res['user'] == $login && $res['password'] == $md5psw) {
+            $cookie = get_Token($res['id']);
             switch($_POST['Remember_me'])
             {
                 case 0:
-                    setcookie('login', $_POST['login'], '');
-                    setcookie('token=', $cookie, '');
+                    setcookie('login', $login, null);
+                    setcookie('token', $cookie, null);
                     header('Location: http://test1.local/index.php');
                     break;
                 case 1:
-                    setcookie('login', $_POST['login'], time()+ 86400*365);
-                    setcookie('token=', $cookie, time()+ 86400*365);
-                    $sql = "UPDATE users SET token='$cookie' WHERE '$login'";
-                    sendQuery($sql);
+                    setcookie('login', $login, time()+ 86400*365);
+                    setcookie('token', $cookie, time()+ 86400*365);
                     header('Location: http://test1.local/index.php');
                     break;
                 default:
@@ -28,4 +26,4 @@ function sign_in()
             return true;
         }
     }
-}       // Функция
+}       // Функция Входа на сайт

@@ -20,9 +20,8 @@ function get_AllNews()
 
 function get_UserInfo($login)
 {
-    $sql = 'SELECT * FROM news where user="$login"';
+    $sql = "SELECT * FROM users where user='$login'";
     $res = sendQuery($sql);
-    $all_Info[]=0;
     if(isset($res)) {
         foreach ($res as $value) {
             $all_Info[] = [
@@ -32,12 +31,16 @@ function get_UserInfo($login)
                 'id' => $value['id'],
                 'email' => $value['email']
             ];
-        }
+        }return $all_Info[0];
+    }   else {
+        echo 'Вы не зарегистрированы';
+        return false;
     }
-    return $all_Info;
+
+
 }       // Возвращает массив всех
 
-function get_Token()
+function get_Token($id)
 {
     $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     $cookie = '';
@@ -46,5 +49,7 @@ function get_Token()
     for ($i = 0; $i < 56; $i++) {
         $cookie .= $characters[mt_rand(0, $max)];
     }
+    $sql = "UPDATE users SET token='$cookie' WHERE id='$id'";
+    sendQuery($sql);
     return $cookie;
 }

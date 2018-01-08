@@ -1,7 +1,7 @@
 <?php
-require __DIR__ . '/../models/sql.php';
-
-
+require_once __DIR__ . '/../models/sql.php';
+require_once __DIR__ . '/../functions/reg.php';
+echo isUser();
 // $all_info = get_AllNews();
 // foreach ($all_info as $value) {
 //    echo $value['id'] . '<br>';

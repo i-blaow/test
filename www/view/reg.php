@@ -1,5 +1,13 @@
 <?php
-require_once '../functions/reg.php';
+require_once 'G:/OSPanel/domains/test1.local/www/functions/reg.php';
+if(isset($_POST['login']) && isset($_POST['password']) && isset($_POST['email'])) {
+
+    if (registration()) {
+        header('Location: http://test1.local/index.php');
+    } else {
+        echo 'Такие данные уже используются';
+    }
+}
 ?>
 
 
@@ -22,8 +30,5 @@ require_once '../functions/reg.php';
         <input type="submit" value="Отправить">
     </form>
 <br>
-    <?php if(true == registration()) {
-    ?><h4>Вы успешно зарегистрировались.</h4><?php
-    }; ?>
 </body>
 </html>
