@@ -1,0 +1,39 @@
+html {
+    background-color:ghostwhite;
+    text-align: center;
+}
+
+.reg {
+    text-align: center;
+    text-decoration-color: black;
+    padding: 0;
+    border: 0;
+}
+.title {
+    text-decoration: none;
+    width: 400px;
+}
+
+.news {
+    text-align: center;
+    width: 600px;
+    overflow-scrolling: touch;
+}
+
+.PhotoLink {
+    float: left;
+    margin: 7px 7px 7px 0;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    top: 0; left: 0;
+}
+.logo {
+    text-align: center;
+}
+nav {
+    text-align: center;
+}
+#linkNav {
+    text-decoration: none;
+}
