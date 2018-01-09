@@ -11,25 +11,51 @@ $res = get_AllNews();
 
 <html>
 <head>
+    <link rel="stylesheet" href="../bootstrap-4.0.0-beta.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-4.0.0-beta.3/docs/4.0/examples/blog/blog.css">
+    <link rel="stylesheet" href="http://test1.local/view/css/main.css">
     <meta charset="utf-8">
-    <link rel=stylesheet href="../view/css/css.css">
     <link rel="shortcut icon" href="../view/images/logo/favicon.png" type="image/png">
     <title>News Portal</title>
 </head>
-<body>
-<img src="../view/images/logo/DesignEvo-Transparent.png">
-<nav>
-    <a id="linkNav" href="/">Добавить новость</a> |
-    <a id="linkNav" href="login.php">Войти</a> |
-    <a id="linkNav" href="reg.php">Регистрация</a> |
-    <a id="linkNav" href="/" onclick="logOut()">Выход</a></a>
+<nav class ="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#"><?php echo $_COOKIE['login'] ?></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
 
+            <a class="nav-link disabled" href="http://test1.local/index.php">Главная<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.php">Войти</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="reg.php">Регистрация</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.php" onclick="logOut()">Выход</a>
+            </li>
+        </ul>
+    </div>
 </nav>
-<div>
+
+
+
+
+
+
+
+
+<body>
+<img id="mainLogo" src="../view/images/logo/DesignEvo-Transparent.png">
+<div class="blog-post">
     <?php foreach ($res as $key => $value){
-        ?><h2 class="title"><a class="title" href="/"><?php echo $value['title']; ?></a></h2>
+        ?><h2 class="blog-post-title"><a href="/"><?php echo $value['title']; ?></a></h2>
+        <p class="blog-post-meta"><?php echo $value['Date'] ?></p>
         <img alt="<?php echo $value['PhotoName'] ?>" class="PhotoLink" src="<?php echo $value['PhotoLink']; ?>">
-        <article class="news"><?php echo $value['text']; ?> </article>
+        <article><?php echo $value['text']; ?> </article>
     <?php
     }
     ?>

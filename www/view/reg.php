@@ -16,12 +16,36 @@ if(isset($_POST['login']) && isset($_POST['password']) && isset($_POST['email'])
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="../bootstrap-4.0.0-beta.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://test1.local/view/css/main.css">
     <title>
         Регистрация
     </title>
 </head>
 <body>
+<nav class ="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#"><?php echo $_COOKIE['login'] ?></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li>
+            <a class="nav-link" href="http://test1.local/index.php">Главная<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Ссылка</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+
+
     <form action="reg.php" method="post" class="reg">
         <label for="log">Имя:         </label><input type="text" name="login" id="log" required placeholder="Иван">
         <br>

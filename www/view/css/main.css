@@ -1,0 +1,80 @@
+
+body {
+    background: #FF9900;
+    padding-top: 60px;
+}
+.container {
+    text-align: center;
+    width:380px;
+    /*padding-top: 20em;*/
+}
+
+.inputFields {
+    height: 150%;
+    background-color: #FF9933;
+}
+
+
+#Remember_me {
+    margin-left: 5px;
+    text-align: center;
+}
+
+#login {
+    text-align: center;
+}
+
+#inputPassword {
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #FF6600;
+    width: 20%;
+}
+.navbar {
+    position: fixed;
+}
+
+#mainLogo {
+    padding-left: 30%;
+}
+
+.blog-post-meta {
+    color: black;
+}
+
+.PhotoLink {
+    float:top;
+    width:300px;
+    height:300px;
+}
+
+.blog-post {
+    text-align: center;
+    float:left;
+}
+
+.blog-post-title {
+    font-size: 30pt;
+    text-decoration-color:#666666;
+}
+#dFile {
+    margin-right: 25px;
+}
+#photoAdd {
+    margin-left: -11px;
+}
+
+.inTitle {
+    width: 500px;
+    height: 100px;
+}
+.inText {
+    width: 500px;
+    height: 200px;
+}
+
+#enterNews {
+    margin-left: 40px;
+}
