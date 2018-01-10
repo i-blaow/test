@@ -52,9 +52,9 @@ $res = get_AllNews();
 <img id="mainLogo" src="../view/images/logo/DesignEvo-Transparent.png">
 <div class="blog-post">
     <?php foreach ($res as $key => $value){
-        ?><h2 class="blog-post-title"><a href="/"><?php echo $value['title']; ?></a></h2>
-        <p class="blog-post-meta"><?php echo $value['Date'] ?></p>
-        <img alt="<?php echo $value['PhotoName'] ?>" class="PhotoLink" src="<?php echo $value['PhotoLink']; ?>">
+        ?><h2 class="blog-post-title"><a href="solo_new.php?Link=<?php echo $value['Link']; ?>"><?php echo $value['title']; ?></a></h2>
+        <p class="blog-post-meta"><?php echo $value['Date']; ?></p>
+        <a href="<?php echo $value['PhotoLink']; ?>"><img alt="<?php echo $value['PhotoName']; ?>" class="PhotoLink" src="<?php echo $value['PhotoLink']; ?>"></a>
         <article><?php echo $value['text']; ?> </article>
     <?php
     }

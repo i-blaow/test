@@ -11,28 +11,21 @@
 <title>Добавить новость</title>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col col-xl-12">
-<form method="post" action="add_News.php">
+
+<div class="row">
+    <div class="col col-sm-12 text-center">
+<form method="post" action="add_News.php" enctype="multipart/form-data">
     <h4>Введите заголовок: </h4>
     <textarea name="title" class="inTitle" cols="40" rows="2"></textarea>
     <h4 id="enterNews">Введите новость: </h4>
     <textarea name="text" class="inText" cols="70" rows="20"></textarea>
-    <input type="submit" value="Опубликовать">
-</form>
-        </div>
-    </div>
-
-
-
-<div class="row">
-    <div class="col col-auto">
-<form method="post" action="add_News.php" enctype="multipart/form-data">
+    <br>
     <i id="dFile" class="fa fa-file"></i><label id="photoAdd" for="photoAdd">Добавить фото для новости: </label>
     <br>
     <input id="photoAdd" type="file" name="image">
-</div>
+    <br>
+    <br>
+    <input type="submit" value="Опубликовать">
 </div>
 </div>
 </form>

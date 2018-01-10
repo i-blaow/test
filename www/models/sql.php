@@ -48,37 +48,26 @@ function get_Token($id)
     return $cookie;
 }       // Шифрует Cookie под названием token и заносит в БД.
 
-function add_PhotoAndNew($fileName, $pathToTmp)
-{
-    if (isset($fileName))    // Проверка на наличие файла.
-    {
-
-        /**  --->           Проверка загружаемого файла            <---  **/
-        if (is_uploaded_file($pathToTmp)) {
-            $dir = '../view/images/PhotoForPaper/' . $fileName;
-            move_uploaded_file($pathToTmp, '../view/images/PhotoForPaper/' . $fileName);
-            $sql = "INSERT INTO news (PhotoLink, PhotoName) VALUES ('$dir', '$fileName')";
-            sendQuery($sql);
-            if(isset($_POST['title']) && isset($_POST['text'])) {
-                add_New($fileName);
-            }
-        } else {
-            echo 'Возможная атака с участием загрузки файла: ';
-            echo 'файл "' . $pathToTmp . '".';
-            return false;
-        }
-    }
-    return true;
-}       // Добавляет фото в базу и на сервер.
 
 function add_New()
 {
-            $Date = date("Ymd");
-            $link = substr($_POST['title'], 0, 8);
-            $miniText = substr($_POST['text'], 0, 100);
-            $sql = "INSERT INTO news (Link, Date, title, text, TextFull)
+    if(isset($_POST['title']) && isset($_POST['text'])) {
+        $Date = date("Ymd");
+        $link = substr($_POST['title'], 0, 8);
+        $miniText = substr($_POST['text'], 0, 250);
+        $sql = "INSERT INTO news (Link, Date, title, text, TextFull)
             VALUES ('$link', '$Date', '$_POST[title]', '$miniText', '$_POST[text]')";
-            var_dump($sql);
+        sendQuery($sql);
+        if (is_uploaded_file($_FILES['image']['tmp_name'])) {
+            $dir = 'view/images/PhotoForPaper/' . $_FILES['image']['name'];
+            move_uploaded_file($_FILES['image']['tmp_name'], $dir);
+            $photoName = $_FILES['image']['name'];
+            $sql = "UPDATE news SET PhotoLink='$dir', PhotoName='$photoName' WHERE Link='$link'";
             sendQuery($sql);
-            return true;
+            return 2;
+        } else {
+            return 1;
+        }
+    }
 }       // Добавлять новость в БД
+
