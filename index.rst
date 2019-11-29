@@ -25,4 +25,4 @@ Then you need to wait a little bit while hack tool handling your request.
 That’s it! Now you need to open game after using the Golf Clash Hack and your free gems and coins will be in your account.
 As you see, it’s very easy to use. Try the free Golf Clash gems tool. What are you waiting for? I promise that you won’t regret about it.
 
-Try Golf Clash Hack here https://golfclash.pro
+Try Golf Clash Hack here https://golfclash.pro 
