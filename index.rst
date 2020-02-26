@@ -1,5 +1,7 @@
 Golf Clash Hack - Free Gems and Coins
 
+Try Golf Clash Hack here https://golfclash.pro
+
 Golf Clash is a good online-game and easy to start play. Peoples who like to play normal golf game now can play their favorite sport right at home. In Golf Clash, you have to train a lot and try your best to make a perfect shot, learn all the necessary features of the game that have been mentioned in this article.
 
 Is Golf Clash hack tool safe for my account?
